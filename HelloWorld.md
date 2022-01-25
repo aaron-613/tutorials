@@ -11,7 +11,8 @@ public static void main(String... args) {
 }
 ```
 
-However, as you can tell from this Wikipedia article, there are many different types of “Hello World” programs.
+However, as you can tell from this [Wikipedia article](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program),
+there are many different types of “Hello World” programs.
 Rather than trying to do the bare minimum to produce some visual output, this Solace Hello World will demonstrat
 e some very fundamental and basic features of Solace APIs and pub/sub messaging:
 
