@@ -21,9 +21,7 @@ This app will connect to a Solace event broker, and publish/subscribe in a loop.
 ## 1. Command line arguments
 The first couple lines of the program simply read in connection parameters from the terminal:
  
-![image](https://user-images.githubusercontent.com/7603332/151020098-f912987b-7403-47e4-a3f4-0ce57844deda.png)
-
-
+[![image](https://user-images.githubusercontent.com/7603332/151020098-f912987b-7403-47e4-a3f4-0ce57844deda.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L47-L53)
 
 Specifically, for Solace Native (SMF) APIs, we need to know
 - Broker / host IP address or hostname
@@ -31,14 +29,15 @@ Specifically, for Solace Native (SMF) APIs, we need to know
 - Message VPN: a virtual partition of a single broker, how Solace support multitenancy
      - E.g. `default`, `lab-vpn`, `cloud-demo-singapore`
 - Username
-     - E.g. “default”, “testuser”, “solace-cloud-client”
+     - E.g. `default`, `testuser`, `solace-cloud-client`
 - Password (optional)
      - This is for basic authentication, different if using certificates or single-sign-on
 
 
 ## 2. Enter your name
 This part is certainly not required in production applications, but allows Hello World allows to easily build a dynamic topic based on some input. It is also useful if running multiple instances of this application, to see them “talking” to each other, as we’ll see later.
- 
+
+[![image](https://user-images.githubusercontent.com/7603332/151020807-8b6eea29-7140-4ca2-ac17-aa2721fce467.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L54-L60)
 
 
 ## 3. Connection Properties
