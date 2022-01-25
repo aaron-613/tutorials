@@ -19,14 +19,14 @@ However, as you can tell from this [Wikipedia article](https://en.wikipedia.org/
 This app will connect to a Solace event broker, and publish/subscribe in a loop.  Let’s begin!
 
 ## 1. Command line arguments
-The first couple lines of the program simply read in connection parameters from the terminal:
+The first couple lines of the program simply read in connection parameters from the console:
 
 [![image](https://user-images.githubusercontent.com/7603332/151020098-f912987b-7403-47e4-a3f4-0ce57844deda.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L47-L53)
 
 Specifically, for Solace Native (SMF) APIs, we need to know
 - Broker / host IP address or hostname
     - E.g. `localhost`, `192.168.42.35`, `mr-abc123.messaging.solace.cloud`
-- Message VPN: a virtual partition of a single broker, how Solace support multitenancy
+- Message VPN: a virtual partition of a single broker, how Solace supports multitenancy
      - E.g. `default`, `lab-vpn`, `cloud-demo-singapore`
 - Username
      - E.g. `default`, `testuser`, `solace-cloud-client`
