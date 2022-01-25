@@ -1,6 +1,6 @@
 # Hello World!  Your first Solace app
 
-Hello and welcome to your first Solace app tutorial.  Appropriately, we’ll be looking at the sample called “HelloWorld”.  At first glance, this application might seem longer than the firstJava/Python/etc. program you might have ever written.  E.g.:
+Hello and welcome to your first Solace app tutorial.  Appropriately, we’ll be looking at the sample called “HelloWorld”.  At first glance, this application defintitely seems longer than the first Java, Python, C++, Go, Node etc. program you might have ever written.  E.g.:
 
 ```
 public static void main(String... args) {
@@ -8,7 +8,7 @@ public static void main(String... args) {
 }
 ```
 
-However, as you can tell from this [Wikipedia article](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program), there are many different types of “Hello World” programs.  Rather than trying to do the bare minimum to produce some visual output, this Solace Hello World will demonstrate some very _fundamental_ and basic features of Solace APIs and pub/sub messaging:
+However, as you can tell from this [Wikipedia article](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program), there are many different types of _Hello World_ programs.  Rather than trying to do the bare minimum to produce some visual output, this Solace Hello World will demonstrate some very _fundamental_ and basic features of Solace APIs and pub/sub messaging:
 
 - **Publish and Subscribe:** most Solace applications do both the “I” and “O” in I/O
 - **Dynamic topics:** topics are hierarchical and descriptive, not static
@@ -35,7 +35,7 @@ Specifically, for Solace Native (SMF) APIs, we need to know
 
 
 ## 2. Enter your name
-This part is certainly not required in production applications, but allows Hello World allows to easily build a dynamic topic based on some input. It is also useful if running multiple instances of this application, to see them “talking” to each other, as we’ll see later.
+This part is certainly not required in production applications, but allows Hello World allows to easily build a dynamic topic based on some input. It is also useful if running multiple instances of this application, to see them "talking" to each other, as we’ll see later.
 
 [![image](https://user-images.githubusercontent.com/7603332/151020807-8b6eea29-7140-4ca2-ac17-aa2721fce467.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L54-L60)
 
@@ -74,7 +74,7 @@ Notice a few things:
 - The use of “`*`” and “`>`” wildcard characters in the subscription
 - Direct subscription (not using Guaranteed delivery yet)
 
-These are called a single-level and multi-level wildcard respectively.  The “`*`” will match anything up to the next level, including empty-string; for the multi-level, as long as the message’s first part of the topic matches the subscription to that point, the “`>`” wildcard will match any remaining (one-or-more) levels.  See here for more details topics and on wildcards.
+These are called a single-level and multi-level wildcard respectively.  The "`*`" will match anything up to the next level, including empty-string; for the multi-level, as long as the message’s first part of the topic matches the subscription to that point, the :`>`" wildcard will match any remaining (one-or-more) levels.  See here for more details topics and on wildcards.
 
 So, our HelloWorld app is adding a subscription: `solace/samples/*/hello/>`
 After adding the only one subscription (you can add as many as you’d like, within the limits of the broker), start the Consumer object which tells the broker to start to receive messages.
@@ -85,7 +85,7 @@ Now we are ready to send some messages, and the subscription will allow us to re
 
 [![image](https://user-images.githubusercontent.com/7603332/151022209-8e0351c8-7e7f-476b-999b-5db055e01be4.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L115-L135)
 
-Note that we specify the payload each loop (could be a text String, or a binary byte[] payload, etc.), as well as define what the message’s published topic is.  Recall: topics are not configured in the Solace broker, they are metadata of the message, and a pattern matching (via subscriptions) is done on each received message.
+Note that we specify the payload each loop (could be a text `String`, or a binary `byte[]` payload, etc.), as well as define what the message's published topic is.  Recall: topics are not configured in the Solace broker, they are metadata of the message, and a pattern matching (via subscriptions) is done on each received message.
 
 
 ## 8. Run it again!
