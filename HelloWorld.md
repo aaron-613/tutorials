@@ -21,7 +21,7 @@ This app will connect to a Solace PubSub+ Event Broker, and publish/subscribe in
 ## 1. Command line arguments
 The first couple lines of the program simply read in connection parameters from the console:
 
-[![image](https://user-images.githubusercontent.com/7603332/151020098-f912987b-7403-47e4-a3f4-0ce57844deda.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L47-L53)
+[![image](helloworld/1.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L47-L53)
 
 Specifically, for Solace Native (SMF) APIs, we need to know
 - Broker / host IP address or hostname and port
