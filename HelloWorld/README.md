@@ -94,7 +94,7 @@ Note that you could run a different language for your 2nd instance, or even anot
  
 Here is the Python HelloWorld app talking to the Java JCSMP HelloWorld app.  Both are subscribed using wildcards, one subscription each, and they will match topics published by other API flavours: note the published topic for each is different (more for demonstration purposes than anything).
 
-![image](8.png)
+![image](8.jpg)
 
 
 ## 9. What’s Next?
