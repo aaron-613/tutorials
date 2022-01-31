@@ -24,8 +24,8 @@ The first couple lines of the program simply read in connection parameters from 
 [![image](img/1.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L47-L53)
 
 Specifically, for Solace Native (SMF) APIs, we need to know
-- Broker / host IP address or hostname and port
-    - E.g. `localhost:55554`, `192.168.42.35:55555`, `mr-abc123.messaging.solace.cloud:55555`
+- Broker / host IP address or hostname and port (port is optional if using the default 55555)
+    - E.g. `localhost:55554`, `192.168.42.35`, `mr-abc123.messaging.solace.cloud:55443`
 - Message VPN: a virtual partition of a single broker, how Solace supports multitenancy
      - E.g. `default`, `lab-vpn`, `cloud-demo-singapore`
 - Username
