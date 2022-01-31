@@ -21,7 +21,7 @@ This app will connect to a Solace PubSub+ Event Broker, and publish/subscribe in
 ## 1. Command line arguments
 The first couple lines of the program simply read in connection parameters from the console:
 
-[![image](helloworld/1.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L47-L53)
+[![image](1.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L47-L53)
 
 Specifically, for Solace Native (SMF) APIs, we need to know
 - Broker / host IP address or hostname and port
@@ -37,13 +37,13 @@ Specifically, for Solace Native (SMF) APIs, we need to know
 ## 2. Enter your name
 This part is certainly not required in production applications, but allows Hello World to easily build a dynamic topic based on some input. It is also useful if running multiple instances of this application, to see them "talking" to each other, as we’ll see later.
 
-[![image](https://user-images.githubusercontent.com/7603332/151020807-8b6eea29-7140-4ca2-ac17-aa2721fce467.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L54-L60)
+[![image](2.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L54-L60)
 
 
 ## 3. Connection Properties
 The next few lines of Hello World initialize the connection parameters, as well as a few other properties that might be useful:
 
-[![image](https://user-images.githubusercontent.com/7603332/151021360-48cffa5b-8d3e-411f-b3d2-aeaed66b3ebf.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L64-L72)
+[![image](3.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L64-L72)
 
 The additional property set “reapply subscriptions” is very useful for applications using Direct messaging (e.g. at-most-once delivery): it tells the API that following a reconnection (either due to network flap or broker failover), the API should automatically add any subscriptions back; by default, this set to false and the application would be responsible.
 
@@ -51,7 +51,7 @@ The additional property set “reapply subscriptions” is very useful for appli
 ## 4. Setup Producer
 The “producer” or publisher in Solace Messaging APIs is the component that sends messages to the broker.  The producer can be configured to send both Direct and Guaranteed messages on the same session, as well as transactions and other qualities-of-service.
 
-[![image](https://user-images.githubusercontent.com/7603332/151021534-e1e19590-b118-4f47-80cd-4c3752d86894.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L76-L90)
+[![image](4.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L76-L90)
 
 The producer configuration options vary from API to API.  In JCSMP, you specify two callback handlers.  These are mostly used for Guaranteed messaging applications, to receive “ACKs” (successful acknowledgements) and “NACKs” (negative acknowledgements) from the broker.  As our Hello World app uses only Direct messaging, these are not as useful, but still need to be configured regardless.  In the PubSub+ Messaging API for Python or Java, Direct publishers do not have to configure this.
 
@@ -59,7 +59,7 @@ The producer configuration options vary from API to API.  In JCSMP, you specify 
 ## 5. Setup Consumer
 The next part of the sample sets up the ability to receive messages from the broker asynchronously – that is: the application does not have to poll the broker for the next message.
 
-[![image](https://user-images.githubusercontent.com/7603332/151021631-eb569c26-1d6b-4188-bf56-dd80ae1e02fc.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L92-L107)
+[![image](5.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L92-L107)
 
 As you can see, the `onReceive()` callback, which gets triggered for each message that this Consumer receives, does not do very much in this simple application, it simply outputs the message to the screen, and continues.
 
@@ -67,7 +67,7 @@ As you can see, the `onReceive()` callback, which gets triggered for each messag
 ## 6. Add Direct message subscriptions
 To receive messages from the broker, you have to tell it what you want to receive.  To receive messages via Direct messaging, you add a (topic) subscription:
 
-[![image](https://user-images.githubusercontent.com/7603332/151021930-b0d95b27-3524-4971-a9de-360aa731fd95.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L109-L112)
+[![image](6.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L109-L112)
 
 Notice a few things:
 - The topic subscription is hierarchical: there are “`/`” characters between levels
@@ -82,7 +82,7 @@ After adding the only one subscription (you can add as many as you’d like, wit
 ## 7. Publish and receive messages
 Now we are ready to send some messages, and the subscription will allow us to receive those messages back.  So in a loop, wait for some user input, and publish a message every 5 seconds:
 
-[![image](https://user-images.githubusercontent.com/7603332/151022209-8e0351c8-7e7f-476b-999b-5db055e01be4.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L115-L135)
+[![image](7.png)](https://github.com/SolaceSamples/solace-samples-java-jcsmp/blob/275739cb858cacea5140c5c7c8310cfb50868695/src/main/java/com/solace/samples/jcsmp/HelloWorld.java#L115-L135)
 
 Note that we specify the payload each loop (could be a text `String`, or a binary `byte[]` payload, etc.), as well as define what the message's published topic is.  Recall: topics are not configured in the Solace PubSub+ Event Broker, they are metadata of the message, and a pattern matching (via subscriptions) is done on each received message.
 
@@ -94,7 +94,7 @@ Note that you could run a different language for your 2nd instance, or even anot
  
 Here is the Python HelloWorld app talking to the Java JCSMP HelloWorld app.  Both are subscribed using wildcards, one subscription each, and they will match topics published by other API flavours: note the published topic for each is different (more for demonstration purposes than anything).
 
-![image](https://user-images.githubusercontent.com/7603332/151022311-2182bdd4-954b-4551-8b67-4eb0cae4f7d2.png)
+![image](8.png)
 
 
 ## 9. What’s Next?
