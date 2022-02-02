@@ -13,4 +13,4 @@ Then dive in!
 1. Guaranteed publish-subscribe
 
 
-
+![asdf](img/pub-sub.png)
